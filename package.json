@@ -1,0 +1,38 @@
+{
+  "name": "compilervoice",
+  "displayName": "CompilerVoice",
+  "description": "Plays sounds on terminal success or error, and notebook cell success or error",
+  "version": "1.0.0",
+  "publisher": "AbhijayD",
+  "icon": "logo.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "terminalSoundFx.toggle",
+        "title": "CompilerVoice: Toggle On/Off"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run bundle",
+    "compile": "tsc -p ./",
+    "bundle": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --platform=node --format=cjs",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.7.1",
+    "esbuild": "^0.27.4",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "node-wav-player": "^1.0.0"
+  }
+}
